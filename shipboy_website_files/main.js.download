@@ -1,0 +1,76 @@
+$(document).ready(function(){
+//    nav-li hover e
+    var num;
+    $('.nav-main>li[id]').hover(function(){
+       /*图标向上旋转*/
+        $(this).children().removeClass().addClass('hover-up');
+        /*下拉框出现*/
+        var Obj = $(this).attr('id');
+        num = Obj.substring(3, Obj.length);
+        $('#box-'+num).slideDown(0);
+    },function(){
+        /*图标向下旋转*/
+        $(this).children().removeClass().addClass('hover-down');
+        /*下拉框消失*/
+        $('#box-'+num).hide();
+    });
+//    hidden-box hover e
+    $('.hidden-box').hover(function(){
+        /*保持图标向上*/
+        $('#li-'+num).children().removeClass().addClass('hover-up');
+        $(this).show();
+    },function(){
+        $(this).slideUp(0);
+        $('#li-'+num).children().removeClass().addClass('hover-down');
+    });
+});
+
+function isTel(str){
+       var reg=/^([0-9]|[\-])+$/g ;
+       if(str.length<7 || str.length>18){
+        return false;
+       }
+       else{
+         return reg.exec(str);
+       }
+}
+function checkform(){
+ var title=document.getElementById('title').value;	
+ var truename=document.getElementById('truename').value;	
+ var tel=document.getElementById('tel').value;	
+ var email=document.getElementById('email').value;	
+ var content=document.getElementById('content').value;	
+ var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+ var pattern = /^((\(\d{3}\))|(\d{3}\-))?(\(0\d{2,3}\)|0\d{2,3}-)?[1-9]\d{6,7}$/;  
+ if(title==""){
+ 
+   alert("公司名称不能为空");
+   return false;
+}
+ if(truename==""){
+   alert("姓名不能为空");
+   return false;
+}
+ if(tel==""){
+
+   alert("电话不能为空");
+   return false;
+}
+if(!isTel(tel)){
+alert("电话号码格式不正确");
+}
+ if(email==""){
+   alert("邮箱不能为空");
+   return false;
+}
+if(!reg.test(email))
+  {
+    alert('提示/n/n请输入有效的E_mail！');
+   return false;
+  }
+ if(content==""){
+   alert("内容不能为空");
+   return false;
+} 
+return true;
+}
