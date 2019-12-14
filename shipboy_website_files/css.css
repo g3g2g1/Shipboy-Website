@@ -29,7 +29,7 @@ ul, li { padding:0px; margin:0px; list-style-type: none; }
 .box li img{width: 319px; height: 116px;}
 .batb{margin-left:250px; width:70px; display:inline;}
 #header { height:100px; float:left; width:100%; }
-#header h1 { height:58px; float:left; width:216px;margin-top:18px; }
+#header h1 { height:58px; float:left; width:216px;margin-top:8px; }
 /*hdp*/
 .banner{margin:0 auto; text-align:center;}
 
